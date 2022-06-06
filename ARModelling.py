@@ -36,7 +36,7 @@ def main():
 
     arima_model = auto_arima(train)
     print(arima_model.summary())
-    prediction = arima_model.predict(n_periods=int(6*30/7))
+    prediction = arima_model.predict(n_periods=len(test))
 
     fig, ax = plt.subplots()
     ax.plot(test.values[0:len(prediction)])
@@ -45,6 +45,13 @@ def main():
     print(mean_absolute_error(test.values[0:len(prediction)], prediction))
     print(mean_absolute_percentage_error(test.values[0:len(prediction)], prediction))
     print(r2_score(test.values[0:len(prediction)], prediction))
+    arima_model = auto_arima(data)
+    prediction = arima_model.predict(n_periods=25)
+    projection = pd.DataFrame()
+    projection['week'] = np.arange(1, 26)
+    projection['year'] = np.zeros(25)
+    projection['projected_net_revenue'] = prediction
+    projection.to_csv("./data/projections/arima.csv", index=False)
 
 
 if __name__ == "__main__":

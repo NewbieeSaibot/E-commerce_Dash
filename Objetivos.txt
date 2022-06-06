@@ -1,0 +1,21 @@
+Os objetivos do projeto são:
+
+- Aponte resultados de vendas por ano: Gross Revenue, Net Revenue, Boxes (em Gráfico e Tabela)
+- Qual customer_acquision_channel teve maior Ticket Médio em 2013 e em 2015?
+- Número de clientes únicos por Ano e comparativo desse resultado 2013x2015 (em gráfico e tabela)
+- Quais dados complementares você julga que seriam importantes para incrementar suas análises em relação a resultados de vendas e análises sobre os clientes?
+
+
+•	Faça a projeção de net_revenue para 6 meses futuros utilizando regressão linear, ARIMA e machine learning (Redes neurais | Random forest); compare os resultados.
+•	Qual modelo teve a melhor performance?
+•	Quais métricas utilizou para comparar? E por quê?
+•	Como realizou treino e teste?
+
+(em texto)
+
+Plus:
+
+
+•	Apresentar gráficos (seaborn, ggplot).
+•	Processamento em cadeia (loops).
+•	Trazer pontos adicionais que tenham relevância considerando o dataset.

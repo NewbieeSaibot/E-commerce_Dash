@@ -1,0 +1,14 @@
+{
+  "Dataset_teste_Just_BI.csv": {
+    "General Description": "Aparentemente é um conjunto de dados de vendas de caixas, com informações a respeito das vendas",
+    "Columns": {
+      "customer_id": "Id do cliente que fez compra",
+      "customer_acquisition_channel": "Forma na qual o cliente fez o pedido.",
+      "year": "Ano em que a venda foi realizada",
+      "week": "Semana na qual a venda foi realizada",
+      "net_revenue": "Expressão inglesa para receita líquida",
+      "gross_revenue": "Expressão inglesa para receita bruta",
+      "boxes": "Aparentemente a quantidade de caixas vendidads em uma dada venda"
+    }
+  }
+}

@@ -89,6 +89,7 @@ class ExploratoryAnalysisLittleData:
         ax.set_ylabel("Probabilidade de voltar a comprar pela vez N + 1.")
 
         plt.show()
+        das.to_csv("./data/prob_kpis.csv", index=False)
 
     @staticmethod
     def customer_lifetime_value(data: pd.DataFrame) -> None:
@@ -138,6 +139,9 @@ class ExploratoryAnalysisLittleData:
             ax.set_title(f"{year}")
             ax.legend()
             plt.show()
+
+        print(data.head())
+        data.to_csv("./data/smooth_clients_kpi.csv", index=False)
 
 
 if __name__ == "__main__":

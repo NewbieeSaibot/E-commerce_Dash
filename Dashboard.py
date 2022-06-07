@@ -42,6 +42,16 @@ app.layout = html.Div([
     html.Div([
         html.H3("KPIs per Year"),
         dash_table.DataTable(year_kpis.to_dict('records'), [{"name": i, "id": i} for i in year_kpis.columns])
+    ]),
+    html.Div([
+        html.H3("Others KPÌs"),
+        html.Br(),
+        dcc.Dropdown(['number_of_nth_sells', 'probability_to_buy_nth+1', 'smooth_clients'], 'number_of_nth_sells', id="Other KPIs"),
+        html.Br(),
+        dcc.Graph(
+                  style={'height': 300},
+                  id="Graph Other KPIs"
+                  ),
     ])
 ])
 
@@ -66,6 +76,21 @@ def update_kpi_line_chart(value):
 def update_projection_line_chart(value):
     projection = pd.read_csv(f"./data/projections/{value}.csv")
     fig = px.line(projection, x="week", y="projected_net_revenue", color='year')
+    return fig
+
+
+@app.callback(
+    Output("Graph Other KPIs", "figure"),
+    Input("Other KPIs", "value"))
+def update_other_kpis_line_chart(value):
+    kpis = pd.read_csv(f"./data/prob_kpis.csv")
+    if value == "number_of_nth_sells":
+        fig = px.line(kpis, x="sales_quantity", y="times")
+    elif value == "probability_to_buy_nth+1":
+        fig = px.line(kpis, x="sales_quantity", y="Prob")
+    else:
+        kpis = pd.read_csv(f"./data/smooth_clients_kpi.csv")
+        fig = px.line(kpis, x="week", y="active_clients", color="year")
     return fig
 
 
